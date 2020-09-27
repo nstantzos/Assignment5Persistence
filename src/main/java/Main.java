@@ -1,3 +1,15 @@
+/*
+Program written by Nick Stantzos, 9-27-2020
+This program will allow the user to create a to-do list, add items to the list, remove items from the list, and print
+the list to the console window. The to-do list will be sent to an SQL database and persisted after the program finishes
+execution. The program is structured as having a Main.java class that begins a session with an SQL database, then
+quickly passes control to a facade which then directs control to three different objects (depending on the user's
+input). The console will continuously prompt the user for input until the exit key is specified. Each action that the
+user can take (add or remove from the list) will commit an action to the SQL database. The database connection is only
+closed when the exit action is taken by the user.
+*/
+
+
 import javax.persistence.*;
 
 public class Main
