@@ -67,7 +67,6 @@
         <tr>
             <td><%=i %></td>
             <td><%=rs.getString("ToDoItem") %></td>
-            <td><input type = "hidden" value="<%=i%>" name="itemID"></td>
         </tr>
         <%
                         if (Integer.parseInt(rs.getString("id")) > maxID)

@@ -26,13 +26,13 @@
   String url = "jdbc:mysql://localhost:3306/todolist";
   String username = "root";
   String password = "n6Stan***SQL";
-  String sqlDropTable = "drop table if exists todolist.todolist";
-  String sqlCreateTable = "create table todolist(id int, itemID int, ToDoItem varchar(255))";
+  //String sqlDropTable = "drop table if exists todolist.todolist";
+  //String sqlCreateTable = "create table todolist(id int, itemID int, ToDoItem varchar(255))";
   String sql = "select * from todolist";
   Connection con = DriverManager.getConnection(url,username,password);
   Statement st = con.createStatement();
-  st.executeUpdate(sqlDropTable);
-  st.executeUpdate(sqlCreateTable);
+  //st.executeUpdate(sqlDropTable);
+  //st.executeUpdate(sqlCreateTable);
   ResultSet rs = st.executeQuery(sql);
   //rs.next();
 
@@ -78,7 +78,6 @@
     <tr>
       <td><%=i %></td>
       <td><%=rs.getString("ToDoItem") %></td>
-      <td><input type = "hidden" value="<%=i%>" name="itemID"></td>
     </tr>
     <%
         i++;
@@ -86,9 +85,10 @@
     %>
     </tbody>
   </table>
+  <br>
 <div>
-  <input type="reset" value="Clear current item" name="clear"/>
-  <input type="submit" value="Add Item" name="submit"/>
+  <input type="reset" value="Clear text boxes" name="clear"/>
+  <input type="submit" value="Add/Remove Items" name="submit"/>
 </div>
 <jsp:include page="my-footer.jsp"/>
 </form>

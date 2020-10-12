@@ -78,7 +78,6 @@
     <tr>
       <td><%=i %></td>
       <td><%=rs.getString("ToDoItem") %></td>
-      <td><input type = "hidden" value="<%=i%>" name="itemID"></td>
     </tr>
     <%
         i++;
@@ -86,9 +85,10 @@
     %>
     </tbody>
   </table>
+  <br>
 <div>
-  <input type="reset" value="Clear current item" name="clear"/>
-  <input type="submit" value="Add Item" name="submit"/>
+  <input type="reset" value="Clear text boxes" name="clear"/>
+  <input type="submit" value="Add/Remove Items" name="submit"/>
 </div>
 <jsp:include page="my-footer.jsp"/>
 </form>
