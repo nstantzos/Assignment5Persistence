@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ToDoListAssignment5 archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/ToDoListAssignment5_archive</output-path>
+    <root id="archive" name="ToDoListAssignment5 archive.war">
+      <element id="artifact" artifact-name="ToDoListAssignment5" />
+    </root>
+  </artifact>
+</component>

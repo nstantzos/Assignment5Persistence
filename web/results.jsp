@@ -42,6 +42,7 @@
     String sql = "select * from todolist";
     String addItem = request.getParameter("firstItem");
     String idRemove = request.getParameter("removeItem");
+    String rawSQL = request.getParameter("rawSQL");
     //String sqlAdd = "insert into todolist(first_name,last_name,city_name,email)values('"+first_name+"','"+last_name+"','"+city_name+"','"+email+"')"
     Connection con = DriverManager.getConnection(url,username,password);
     Statement st = con.createStatement();
@@ -94,21 +95,35 @@
         <td>Item to be removed</td>
         <td><%= idRemove%></td>
     </tr>
+    <tr>
+        <td>Raw SQL statement</td>
+        <td><%= rawSQL%></td>
+    </tr>
     </tbody>
 </table>
     <%
         if (addItem.isEmpty())
         {
-
+            // Do nothing since addItem contains nothing to add
         }
         else
         {
-            String itemIDToAdd = Integer.toString(maxID + 1);
-            String sqlAdd = "insert into todolist values(" + itemIDToAdd + "," + itemIDToAdd +",'" + addItem +"')";
-            //String sqlAddTest = "insert into todolist values(5,5,'water the ficus')";
-            Statement newStatement = con.createStatement();
+            String sqlAdd = "";
+            try
+            {
+                String itemIDToAdd = Integer.toString(maxID + 1);
+                sqlAdd = "insert into todolist values(" + itemIDToAdd + "," + itemIDToAdd +",'" + addItem +"')";
+                //String sqlAddTest = "insert into todolist values(5,5,'water the ficus')";
+                Statement newStatement = con.createStatement();
 
-            int value = newStatement.executeUpdate(sqlAdd);
+                int value = newStatement.executeUpdate(sqlAdd);
+            }
+            catch (Exception e)
+            {
+                System.out.println("SQL insert broke");
+                System.out.println("Here's the attempted statement: " + sqlAdd);
+            }
+
         }
         if (idRemove.isEmpty())
         {
@@ -118,6 +133,14 @@
         {
             String sqlDelete = "delete from todolist where ToDoItem='" + idRemove + "'";
             st.executeUpdate(sqlDelete);
+        }
+        if(rawSQL.isEmpty())
+        {
+
+        }
+        else
+        {
+            //st.executeUpdate(rawSQL);
         }
 
 
