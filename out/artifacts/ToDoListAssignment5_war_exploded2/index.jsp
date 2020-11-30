@@ -58,6 +58,13 @@
       <!-- table column 2-->
       <td><input type="text" name="removeItem" value="" size="50"></td>
     </tr>
+    <!-- table row 3-->
+    <tr>
+      <!-- table column 1-->
+      <td> Enter a raw SQL statement</td>
+      <!-- table column 2-->
+      <td><input type = "text" name="rawSQL" value="" size="50"></td>
+    </tr>
     </tbody>
   </table>
   <br>

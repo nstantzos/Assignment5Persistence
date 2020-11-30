@@ -140,7 +140,7 @@
         }
         else
         {
-            st.executeUpdate(rawSQL);
+            //st.executeUpdate(rawSQL);
         }
 
 
